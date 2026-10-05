@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clique no alvo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <main class="jogo">
+
+        <header class="topo">
+            <h1><img src="alvo.png.png" width="30" alt="alvo de tiro" class="logo">Clique no alvo 
+</h1> 
+
+            <div class="placar">
+                <p>Pontos <strong class="pontos">0</strong></p>
+                <p>Tempo <strong class="tempo">30</strong></p>
+                <p>Recorde <strong class="recorde">0</strong></p>
+            </div>
+        </header>
+
+        <div class="arena">
+            <button type="button" class="alvo escondido" aria-label="Alvo"></button>
+        </div>
+
+        <timer class="temporizador"></timer>
+
+        <div1 class="mensagem-final escondido">
+            <p>Você fez <strong class="placar-final">0</strong> pontos.</p>
+        </div1>
+
+        <button type="button" class="botao-reiniciar escondido">Reiniciar</button>
+
+        <dialog class="modal" id="modal">
+            <p>Você fez <strong class="placar-final">0</strong> pontos.</p>
+            <p>O recorde é <strong class="recorde-final">0</strong> pontos.</p>
+            <button type="button" class="botao-fechar">Fechar</button>
+        </dialog>
+        
+        <button type="button" class="botao-comecar">Começar</button>
+        <p class="mensagem">Acerte o máximo de alvos em 30 segundos.</p>
+
+        <button type="button" class="botao-nivel">Nível</button>
+        <select class="campo-nivel">
+            <option value="facil">Fácil</option>
+            <option value="medio">Médio</option>
+            <option value="dificil">Difícil</option>
+            <option value="especial">Especial</option>
+
+        </select>
+
+    </main>
+
+</body>
+
+</html>

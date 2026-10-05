@@ -1,0 +1,170 @@
+:root {
+    --cor-fundo: #000000;
+    --cor-arena: #e9f1f7;
+    --cor-texto: #f4f7fb;
+    --cor-suave: #9fb3c8;
+    --cor-alvo: #e63946;
+    --cor-destaque: #2ec4b6;
+    --cor-especial:gold;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 24px 16px;
+    background-color: var(--cor-fundo);
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--cor-texto);
+}
+
+.jogo {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+
+/* Topo e placar */
+
+.topo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 26px;
+    font-family: "serif";
+    img {
+        vertical-align: middle;
+    }
+}
+
+.placar {
+    display: flex;
+    gap: 20px;
+}
+
+.placar p {
+    margin: 0;
+    color: var(--cor-suave);
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.placar strong {
+    display: block;
+    font-size: 26px;
+    color: var(--cor-texto);
+}
+
+
+/* A arena: o alvo se posiciona em relação a ela */
+
+.arena {
+    position: relative;
+    height: 380px;
+    border-radius: 12px;
+    background-color: var(--cor-arena);
+    overflow: hidden;
+}
+
+
+/* O alvo: posição exata dentro da arena */
+
+.alvo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    /* Os anéis do alvo: quatro faixas de cor, do centro para a
+       borda. "closest-side" faz 100% ser a borda do alvo. */
+    background: radial-gradient(circle closest-side,
+            #ffffff 0% 25%,
+            var(--cor-alvo) 25% 50%,
+            #ffffff 50% 75%,
+            var(--cor-alvo) 75% 100%);
+}
+
+.alvo:hover {
+    box-shadow: 0 0 0 4px var(--cor-destaque);
+}
+
+.alvo:active {
+    transform: translate(-50%, -50%) scale(0.85);
+}
+
+.alvo.escondido {
+    display: none;
+}
+
+.alvo.dourado {
+    background-color: var(--cor-especial);
+    box-shadow: 0 0 0 4px var(--cor-destaque);
+}
+
+/* Botão e mensagem */
+
+.botao-comecar {
+    display: block;
+    width: 100%;
+    margin-top: 16px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo);
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botao-comecar:hover {
+    background-color: #5bd9cd;
+}
+
+.botao-comecar:disabled {
+    background-color: #2dd4f1;
+    color: var(--cor-suave);
+    cursor: not-allowed;
+}
+
+.botao-comecar:focus-visible,
+.alvo:focus-visible {
+    outline: 3px solid var(--cor-destaque);
+    outline-offset: 3px;
+    
+}
+
+.alvo.dourado { 
+background: gold;
+}
+
+.mensagem {
+    text-align: center;
+    color: var(--cor-suave);
+    font-size: 18px;
+}
+
+
+@media (min-width: 700px) {
+
+    .arena {
+        height: 440px;
+    }
+
+}
